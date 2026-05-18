@@ -1,0 +1,102 @@
+/* Tiny overrides on top of simple.css. */
+
+header h1 {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-block-end: 0.25rem;
+}
+header p {
+  text-align: center;
+  margin: 0.25rem auto;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 0.5rem;
+}
+.suggestions button {
+  margin: 0;
+}
+
+#status:empty {
+  display: none;
+}
+#status[data-level="error"] {
+  background-color: #ffe5e5;
+  color: #6a0000;
+  padding: 0.75rem 1rem;
+  border-radius: var(--standard-border-radius, 5px);
+  border: 1px solid #6a0000;
+}
+#status[data-level="info"] {
+  font-style: italic;
+  color: var(--text-light);
+}
+#status[data-level="warning"] {
+  background-color: #fff4cc;
+  color: #5a4400;
+  padding: 0.75rem 1rem;
+  border-radius: var(--standard-border-radius, 5px);
+  border: 1px solid #5a4400;
+}
+
+.result {
+  border-top: 1px solid var(--border);
+  padding-block: 1.5rem;
+}
+.result .meta {
+  text-align: right;
+  font-size: 0.85rem;
+  margin: 0.15rem 0;
+}
+.result details {
+  margin-block: 0.5rem;
+}
+.result details pre {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  max-height: 30rem;
+  overflow-y: auto;
+}
+.result .interpolated {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.result .image-tabs {
+  margin-block: 1rem;
+}
+.result .image-tabs .tab-buttons {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+.result .image-tabs .tab-buttons button {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  margin: 0;
+  background: var(--accent-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.result .image-tabs .tab-buttons button[aria-selected="true"] {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+.result .image-tabs figure {
+  border: 1.5px solid var(--text);
+  margin: 0.5rem 0 0 0;
+}
+.result .image-tabs figure img {
+  width: 100%;
+  display: block;
+}
+.result .image-tabs figcaption {
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--text-light);
+  padding: 0.25rem;
+}

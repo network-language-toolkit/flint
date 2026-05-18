@@ -1,0 +1,5 @@
+# Wrangler's local auth + state cache — never commit; contains OAuth tokens.
+.wrangler/
+
+# macOS
+.DS_Store

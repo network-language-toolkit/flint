@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flint FOIA Response Search Engine</title>
+  <link rel="stylesheet" href="lib/simple.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Flint FOIA Response Search Engine</h1>
+    <p>Peter Nadel and Kevin Smith, Tufts University</p>
+    <p>Hundreds of thousands of emails retrieved through FOIA, <i>finally</i> searchable</p>
+    <p>Completely free and open to all</p>
+  </header>
+
+  <main>
+    <details>
+      <summary>ℹ️ About the page images shown with each result</summary>
+      <p>Each search result is shown with one or more page images from the original FOIA release. <b>The mapping from email to page is approximate for some results.</b></p>
+      <ul>
+        <li>~82% of results have a <i>verified</i> page association (their body text was found in the source OCR).</li>
+        <li>~18% are <i>approximate</i> — flagged inline with ⚠️ — because the email's body could not be uniquely matched (empty body, one-line reply, or OCR/clean-text divergence). For these, the page/thread is inferred from neighboring emails.</li>
+      </ul>
+      <p>Thread boundaries themselves come from authoritative upstream OCR metadata (<code>page_number</code> on each page); only the <i>email → thread</i> assignment is the approximate step.</p>
+    </details>
+
+    <form id="search-form" autocomplete="off">
+      <label for="query">Search the emails</label>
+      <input type="search" id="query" name="query" autofocus>
+
+      <details>
+        <summary>Some suggested queries</summary>
+        <div class="suggestions">
+          <button type="button" data-q="local engagement">local engagement</button>
+          <button type="button" data-q="state of emergency">state of emergency</button>
+          <button type="button" data-q="water contamination">water contamination</button>
+          <button type="button" data-q="schools">schools</button>
+          <button type="button" data-q="lead pipes">lead pipes</button>
+        </div>
+      </details>
+
+      <label for="num-results">Maximum number of documents to see</label>
+      <input type="number" id="num-results" value="10" min="1" max="100" step="1">
+    </form>
+
+    <p id="status" role="status" aria-live="polite" data-level="info">Initializing… (if this stays for more than a few seconds, open DevTools → Console)</p>
+
+    <section id="results"></section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
