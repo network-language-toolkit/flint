@@ -8,8 +8,6 @@
 //
 // Update WORKER_URL after `wrangler deploy` prints the deployment URL.
 
-import * as duckdb from './lib/duckdb-wasm/duckdb-browser.bundled.mjs';
-
 const WORKER_URL = 'https://flint-embed.flint-search.workers.dev/embed';
 const DB_URL     = './data/flint_hf_lean_1024.duckdb';
 const DB_ALIAS   = 'flint';
@@ -58,6 +56,7 @@ let dbReady = null;     // Promise that resolves once attach+FTS load completes
 
 async function initDuckDB() {
   setStatus('Loading DuckDB engine…', 'info');
+  const duckdb = await import('./lib/duckdb-wasm/duckdb-browser.bundled.mjs');
   const base = new URL('./lib/duckdb-wasm/', window.location.href).href;
   const MANUAL_BUNDLES = {
     mvp: {

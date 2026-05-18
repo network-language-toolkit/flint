@@ -20,6 +20,16 @@ header p {
   margin: 0;
 }
 
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.search-bar input[type="search"] {
+  flex: 1;
+  min-width: 0;
+}
+
 #status:empty {
   display: none;
 }
