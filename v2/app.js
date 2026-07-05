@@ -57,7 +57,7 @@ let dbReady = null;     // Promise that resolves once attach+FTS load completes
 async function initDuckDB() {
   setStatus('Loading DuckDB engine…', 'info');
   const duckdb = await import('./lib/duckdb-wasm/duckdb-browser.bundled.mjs');
-  const base = new URL('./lib/duckdb-wasm/', window.location.href).href;
+  const base = new URL('./lib/duckdb-wasm/', document.baseURI).href;
   const MANUAL_BUNDLES = {
     mvp: {
       mainModule: base + 'duckdb-mvp.wasm',
@@ -81,7 +81,7 @@ async function initDuckDB() {
   URL.revokeObjectURL(workerUrl);
 
   setStatus('Downloading search database (44 MB, one-time)…', 'info');
-  const absoluteDbUrl = new URL(DB_URL, window.location.href).href;
+  const absoluteDbUrl = new URL(DB_URL, document.baseURI).href;
   await db.registerFileURL(
     'flint_hf_lean_1024.duckdb',
     absoluteDbUrl,
